@@ -6,7 +6,7 @@ edition = "2018"
 description = "A random user-agent"
 repository ="https://github.com/roadhub/randua.git"
 readme = "./README.md"
-license="./LICENSE"
+license="MIT"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
