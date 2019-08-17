@@ -1,3 +1,4 @@
+use std::fmt;
 mod browser;
 mod engin;
 mod platform;
@@ -28,11 +29,36 @@ impl UserAgent {
         format!("{} ({}) {}", self.version, p.to_string(), b.to_string())
     }
 }
+
+impl std::fmt::Display for UserAgent {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "{}", self.to_string())
+    }
+}
+
 /// create a random UserAgent
-/// # Expleam
+///
+/// ## create a random user agent
 /// ```rust
 /// let ua = randua::new();
+///
+/// // Mozilla/5.0 (iPhone; CPU iPhone OS 7.0.2 like Mac OS X; rv:41.40) Gecko/20100101 Firefox/41.40
 /// println!("{}", ua);
+/// ```
+///
+/// ## create a chrome user agent for desktop platform
+/// ```rust
+/// let mut ua = randua::new();
+/// ua.chrome().desktop();
+/// assert!(ua.to_string().contains("Chrome"));
+/// ```
+///
+/// ## create a chrome user agent for mobile platform
+/// ```rust
+/// let mut ua = randua::new();
+/// ua.chrome().phone();
+/// assert!(ua.to_string().contains("Safari"));
+/// assert!(ua.to_string().contains("iPhone") || ua.to_string().contains("Android"));
 /// ```
 pub fn new() -> UserAgent {
     let mozilla_with_version = "Mozilla/5.0";
@@ -51,6 +77,8 @@ pub fn new() -> UserAgent {
 }
 
 #[test]
-fn test_user_agent() {
-    println!("{}", new().firefox().phone().to_string());
+fn test_user_agent_for_firefox() {
+    let ua = new().firefox().phone().to_string();
+    assert!(ua.contains("Firefox"));
+    assert!(ua.to_string().contains("iPhone") || ua.to_string().contains("Android"));
 }
