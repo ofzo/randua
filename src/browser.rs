@@ -138,8 +138,8 @@ impl UserAgent {
 
         self
     }
-    /// create a macOS browser, it is safari
-    pub fn mac_os(&mut self) -> &mut UserAgent {
+    /// create a safari browser
+    pub fn safari(&mut self) -> &mut UserAgent {
         self.browser = Some(
             BrowserInfo {
                 name: String::from("Safari"),

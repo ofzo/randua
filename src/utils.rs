@@ -23,8 +23,3 @@ pub fn rand_string_bytes_mask_impr(n: i32) -> String {
     }
     b.iter().cloned().collect::<String>()
 }
-
-#[test]
-fn name() {
-    println!("{}", rand_string_bytes_mask_impr(5));
-}
