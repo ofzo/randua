@@ -108,6 +108,7 @@ impl BrowserInfo {
 }
 
 impl UserAgent {
+    /// create a chrome browser
     pub fn chrome(&mut self) -> &mut UserAgent {
         self.browser = Some(
             BrowserInfo {
@@ -137,6 +138,7 @@ impl UserAgent {
 
         self
     }
+    /// create a macOS browser, it is safari
     pub fn mac_os(&mut self) -> &mut UserAgent {
         self.browser = Some(
             BrowserInfo {
@@ -163,6 +165,7 @@ impl UserAgent {
 
         self
     }
+    /// create a firefox browser
     pub fn firefox(&mut self) -> &mut UserAgent {
         self.browser = Some(
             BrowserInfo {
