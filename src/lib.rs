@@ -1,15 +1,17 @@
 mod browser;
-pub mod engin;
+mod engin;
 mod platform;
-pub mod semver;
+mod semver;
 mod utils;
 
+/// user agent base struct
 pub struct UserAgent {
     version: String,
     browser: Option<browser::Browser>,
     platform: Option<platform::Platform>,
 }
 impl UserAgent {
+    /// export UserAgent
     pub fn to_string(&self) -> String {
         let b = self.browser.as_ref().unwrap();
         let p = &self.platform.as_ref().unwrap();
@@ -26,6 +28,12 @@ impl UserAgent {
         format!("{} ({}) {}", self.version, p.to_string(), b.to_string())
     }
 }
+/// create a random UserAgent
+/// # Expleam
+/// ```rust
+/// let ua = randua::new();
+/// println!("{}", ua);
+/// ```
 pub fn new() -> UserAgent {
     let mozilla_with_version = "Mozilla/5.0";
     let mut ua = UserAgent {

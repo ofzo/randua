@@ -103,10 +103,12 @@ struct PlatformInfo {
 }
 
 impl UserAgent {
+    /// create a desktop browser
     pub fn desktop(&mut self) -> &mut UserAgent {
         self.platform = Some(Platform::random(true));
         self
     }
+    /// create a mobile browser
     pub fn phone(&mut self) -> &mut UserAgent {
         self.platform = Some(Platform::random(false));
         self
