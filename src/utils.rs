@@ -1,8 +1,8 @@
 use rand::Rng;
-static LETTER_BYTES: &'static str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-static LETTER_IDX_BITS: u32 = 6;
-static LETTER_IDX_MASK: u64 = (1 << LETTER_IDX_BITS) - 1;
-static LETTER_IDX_MAX: u32 = 63 / LETTER_IDX_BITS;
+const LETTER_BYTES: &'static str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const LETTER_IDX_BITS: u32 = 6;
+const LETTER_IDX_MASK: u64 = (1 << LETTER_IDX_BITS) - 1;
+const LETTER_IDX_MAX: u32 = 63 / LETTER_IDX_BITS;
 
 pub fn rand_string_bytes_mask_impr(n: i32) -> String {
     let mut b: Vec<char> = vec!['0'; 5];
