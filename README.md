@@ -2,7 +2,7 @@
 
 base a project `surferua (go-lang)` (git@github.com:jiusanzhou/surferua.git)  -- thank you
 
-```rs
+```rust
 
 use crate::randua;
 
