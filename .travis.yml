@@ -1,7 +1,7 @@
 language: rust
 rust:
   - stable
-  - bate
+  - beta
   - nightly
 script:
   - cargo build --verbose --all
